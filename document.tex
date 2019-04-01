@@ -1,0 +1,357 @@
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{wallpaper}
+\author{阴月有晴}
+\title{概率论笔记}
+\date{国庆}
+\begin{document}
+\maketitle
+\begin{center}
+\CenterWallPaper{1.2}{back.jpg}
+手机:18576427500\\
+邮箱1：chenay@sustc.edu.cn\\
+邮箱2：achen@liv.ac.uk
+\end{center}
+\tableofcontents
+
+\section{Probability}
+\subsection{simple concepts}
+$ \Omega  $代表sample space,$ \omega  $代表基本事件，$ f $代表$ 2^{\Omega} $,其中有$ 2^{\left| \Omega \right|} $个元素
+
+大写字母ABC代表事件，大写字母XYZ代表随机变量
+
+$ \phi $:例如抛四次硬币，不可能出现反反反。
+
+\paragraph{Operation of Eventl}
+\begin{itemize}
+	\item Union 并 $ \cup $
+	\item Intersection 交 $ \cap $
+	\item complement 德摩根律  $ A \backslash B $ 
+	\item contain $ A \subset B $
+	\item disjoint A和B不可能同时发生
+	\item \textbf{概率测度}：$ P:f\rightarrow \left[ 0,1\right]  $，\textit{不可能事件概率为零，概率为零的事件未必为不可能事件。必然事件亦同}
+\end{itemize}
+
+概率空间：$ \left( \Omega,f,p\right)  $
+
+\subsection{Computing Probabitity}
+条件概率，定义，可推广至多个。
+
+\textbf{Polya's urn schenme} 一个例子
+
+\textbf{School boy}又一个例子
+
+
+
+Law of Total Probability: Let$ B_{1},B_{2},B_{i},.. $为$ \Omega $的一个划分
+
+由全概率公式可进一步推出贝叶斯公式。
+
+独立性的含义。必然事件和零概率事件与任何事件都独立。分析定义和直观定义。并且也可以进一步推广(由两个事件推广至n个事件)。
+
+\section{Random Variables}
+随机变量的概念：$ \Omega \rightarrow \mathbb{R}  $，将事件的结果与数相关，赋予事件以意义。在数这方面可以进行推广。
+
+Bernouli Random variable，一种很常见的模型。
+
+Binomial Random variable,是Bernouli由一次推广至n次的结果，也可以看作是其的应用。
+
+Poisson Random variable Poisson($ \lambda $)
+
+Geometric Random variable 超几何分布
+
+反过来，可以用随机变量的结果来代表事件。
+
+随机变量由其核心性质可分为离散型核心变量(无穷或又穷，可列)和连续性随机变量。
+
+\textbf{p.m.f}:相当于根据随机变量的结果在概率空间上的划分。
+
+\textbf{c.d.f}(cumulative dtribution function):一个非降函数，离散型随机变量会有跳跃点，右连续和左极限。
+大概是反映了一种顺序吧，类似一种格的结构。
+
+一些离散型随机变量的分布，如泊松分布，伯努利分布等。
+
+
+\section{Continuous Random Varaibles}
+连续性随机变量：不可列的无穷变量。
+
+类似p.m.f可以在连续性随机变量定义\textbf{p.d.f}(概率密度)。(\textbf{更好的想法是从c.d.f上定义出来，即要求$ F(x) $可微，若不可微则为第三类随机变量})，
+
+
+而c.d.f则可以直接套用在连续性随机变量上，名称依然为c.d.f没有改变
+
+p.d.f在某些点可以取不同的值。这只能从c.d.f这方面来理解。
+
+$ p( a < x\leq b) =F\left( b\right) -F\left( a\right)  $,该公式对于所有类型的随机变量均有效。且应该注意左开右闭，对于连续性随机变量则无影响。且$ a > b $时右边为零而非反过来
+
+The Exponential Distribution
+
+The Gammma Distribution :可以看作Exponential Distribution 的一种更近一步的推广。
+
+\textbf{Normal Random Variabls}：$ X \sim N\left( 0,1\right)  $,
+$f(x)= \dfrac {1}{\sqrt {2\pi }}e^{-\dfrac {x^{2}}{2}} $,其c.d.f又记为\[ \Phi \left(x \right) =\int_{-\infty}^{x} f \left(x \right) dx\]
+由于$ f(x) $关于y轴的对称性，$ \Phi \left(x\right) $有性质：
+\[ \Phi \left(x\right)=1-\Phi \left(-x\right) \]
+其中，可以引出\textbf{$ 3 \sigma $原则}
+
+\textbf{General Normal Random Variables:}
+\[ X \sim N \left(\mu,\sigma ^2\right) \]
+\[ f\left(x\right) =\dfrac{1}{\sqrt{2 \pi} \sigma} e^{-\dfrac{\left(x-\mu\right)^2}{2 \sigma ^2}}\]
+令\[ Y=a X+b \] 则
+\[ Y \sim N \left(a\mu+b,a^2 \sigma ^2\right) \]
+令\[ Y=\dfrac{X-\mu}{\sigma} \]
+then \[ Y \sim N \left(0,1\right) \]
+
+\textbf{function of a random variable}:$ R \rightarrow R $,例如：
+\[ z=x^k,then \, Z \left(\omega\right)= X^k \, is \, a \, r.v\]
+\textbf{question } if $ X \sim N \left(0,1\right) $,then what is the distribution of $ X^2 $?\\
+Solution : Let $ Y=X^2 $ and assume the c.d.f of Y is $ F_Y \left(y\right) $.
+\textbf{answer }:
+\[ f_Y \left(y\right)=\begin{cases}
+\dfrac{e^{-\dfrac{y}{2}}}{\sqrt{2 \pi y}}  \, , \, y>0\\\\
+
+0,\,y \leq 0
+\end{cases} \]
+
+\textbf{a useful general result}:Suppose that $ g \left(x\right) $ is a strictly monotone differentiable function of x.Then the random variable Y denoted by Y=$ g \left(x\right) $ has a p.d.f. given by
+\[  f_{Y} \left(y\right) =\begin{cases}
+f_X \left[g^-1 \left(y\right)\right] \cdot   \left[\dfrac{d}{dy} g^-1 \left(y\right)\right],\, if \, y=g\left(x\right)\\
+\\
+0,\,if \,there \,is \, no \,y=g \left(x\right)
+\end{cases}\]
+
+\textbf{the cauthy distribution}:$ \mu $ is a real number,if its p.d.f. $ f_Y \left(y\right) $is given by:
+\[ f_Y \left(y\right)=\dfrac{1}{\pi} \cdot \dfrac{1}{\left[1+\left(y-\mu\right)^2\right]},\left(-\infty<y<\infty\right)\] 
+when $ \mu =0 $ is the standard cauthy distribution.
+
+\section{Expected Values}
+\subsection{The Expected Value of a  Discrete Random Variable}
+\paragraph{Definition of expexted}$ E \left(X\right) $，表示随机变量的对于概率的加权平均。
+\[ E \left(X\right)=\sum_{i}^{} p_{i}\cdot X_{i}\]
+其中若上式为无穷级数，则要求其绝对收敛，否则无意义(黎曼重排定理)
+
+\paragraph{Binomial Distribution}if $ X \sim B \left(n,p\right) $,then\[ E\left(X\right)=np \]
+\paragraph{Poisson Distribution }if $ X \sim Possion \left(\lambda\right) $,then\[ E \left(X\right)=\lambda \]
+
+\paragraph{The Geometric Distribution} $ E \left(X\right)=\dfrac{1}{p} $,  $ p $代表一次成功的概率。
+
+\paragraph{notes} $ E \left(X\right)  $ does no exist \[ p.m.f \, p_n=\dfrac{1}{n\left(n+1\right)}   \]
+
+\subsection{The Expected Value of a  Continuous Random Variable}
+\paragraph{Definition of expexted}类比离散型随机变量，
+\[ E \left(X\right)=\int_{-\infty}^{\infty} x f\left(x\right) \, dx\]
+
+\paragraph{Standard Normal Distribution}
+由对称性和\textbf{绝对收敛}可知，Standard Normal Distribution 的$
+ E\left(X\right) =0$
+ 
+\paragraph{Gamma Distribution}
+利用$ \Gamma  $函数的性质可以演算出：
+\[ E \left(X\right)=\dfrac{\alpha}{\lambda} \]
+
+\paragraph{The Cauthy Distribution}
+The cauthy distribution is 
+\[ f \left(x\right)=\dfrac{1}{\pi} \cdot \dfrac{1}{1+x^2}\]
+but  \[ \int_{-\infty}^{\infty} \left|x\right| f \left(x\right) \, dx\]does not convert,so its $  E \left(X\right)$ does not exist.
+
+\paragraph{Remark}
+
+\subsection{Expectation of Function of Random Variables}
+
+\paragraph{Problem}
+Suppose X is a r.v. ,the $ Y=g \left(X\right) $,how to find the $ E \left(Y\right) $?
+
+\paragraph{Notes}
+\begin{itemize}
+	\item 为什么$ E \left(Y\right)\neq g \left( E \left(X\right)\right) $
+	\item 其中的意义如何理解？
+	\item n阶矩的意义？
+\end{itemize}
+\paragraph{Examples}
+Random Variable Random Variable X:{-1,0,1}\\
+with pmf:P(X=-1)=0.2 , P(X=0)=0.5 ,P(X=1)=0.3\\
+then\[ E \left(X^2\right)=0.5 \]
+
+\subsection{二阶矩}
+
+\paragraph{Notes}
+\begin{itemize}
+	\item $ E \left( X^2\right)-\left(E \left(X\right)\right)^2 $是方差(如何证明？)
+	\item 矩是研究随机变量的一种工具，类似于物理上的矩。
+\end{itemize}
+\paragraph{Question}
+\begin{itemize}
+	\item 如何理解$ E \left(X ^2\right) $的意义？为什么被赋予二阶矩的意义？
+	\item 是否有更快的计算方法？
+	\item 对于连续性变量的方差如何定义？
+	\item 如何理解$ E \left(X-Y\right)= E \left(X\right) -E \left(Y\right) $的意义？
+\end{itemize}
+
+\section{Joint Distribution}
+\subsection{离散型随机变量}
+\paragraph{Joint p.m.f}
+假设X和Y是定义在同一个样本空间上的离散型随机变量，则
+\[ p \left(x_i,y_j\right) = P \left( X=x_i,Y=y_i\right) \]
+(其中涉及交运算)，称为X和Y的 the joint probability mass function ，简写为Joint p.m.f
+
+\paragraph{Marginal p.m.f}
+$ p_X \left(\cdot\right) $称为X和Y的 the joint probability mass function 的X的边缘分布
+
+\paragraph{M p.m.f 和 Joint p.m.f的关系}
+显然Joint p.m.f可以决定M p.m.f,但是如何决定？而已知M p.m.f，在什么情况下可以决定Joint p.m.f?\\
+第一问利用全概率公式即可，类似一种降维的思想\\
+而第二问则需要引入\textbf{独立性随机变量}的概念。因为需要知道X和Y的关系。
+
+\paragraph{独立性随机变量}
+若对于所有的$ x_i $和$ y_i $有：
+\[ P \left(x_i,y_j\right) =P \left(x_i\right) \cdot P \left(y_j\right)\]
+,联想独立事件，可以看作一个独立事件族。
+
+\paragraph{Joint Cumulative Probability Distribution Function}
+简写为：joint c.d.f，记作$ F_{\left(X,Y\right)} \left(x,y\right)$,
+,有二维递增性和概率连续性：\[ \lim\limits_{x \rightarrow-\infty} F \left(x,y\right)=0 ,\forall y \in R\]
+
+\paragraph{Marginal Cumulative Probability Distribution Function}
+
+\paragraph{两者c.d.f的关系}
+类似c.d.f，但是计算方法有所改变。
+
+\subsection{连续性随机变量}
+类似单变量随机变量，先建立Joint c.d.f,它有二维递增性和积分为1，以及区间
+性。
+再由偏导可以进一步定义 Joint p.d.f (Joint Probability Density Function)以及 M p.d.f
+
+\textbf{Remark}:独立性和相关系数的关系，相关系数为0未必独立，而独立相关系数一定为0.
+
+\subsection{多随机变量的函数的期望}
+多随机变量的函数，例如$ Z =X+Y $,是一个复合函数，也是一个 r.v.,仍然以事件为因变量。以正向的思维来看，这个是简单的
+\subsection{期望的性质}
+\begin{enumerate}
+\item \textbf{$ E \left(C\right)=C $,C为一常数},你的初始理解有错误
+\item $ E \left(a X\right)=a \cdot E \left(X\right) $,a为常数，X为随机变量
+\item $ E \left(X \cdot Y\right) \neq E \left(X\right) \cdot E \left(Y\right) $,并不显然
+\item $ E \left(X+Y\right)=E \left(X\right)+E \left(Y\right) $,要假设其存在p.d.f,然后由积分可证
+\item $ E \left(aX+bY\right)=a \cdot E \left(X\right)+b \cdot E 
+\left(Y\right) $,是2和4的推论，代表了期望的线性性质。
+\item $ E \left( \sum_{n=1}^{\infty} Y_n\right)= \sum_{n=1}^{\infty}  E \left(Y_n\right)$,其中要保证无穷项符号要一致\\
+控制收敛定理：若$ \sum_{n=1}^{\infty} E \left(\left|Y_n \right|\right) $有限，则前式也成立
+\item 若X和Y两者独立（上面的定理不需要这个条件），那么$ E \left(XY\right)=E \left(X\right) \cdot E \left(Y\right) $,证明过程
+中只需要利用$ f \left(x,y\right)=f_X \left(x\right) \cdot f_Y \left(y\right) $套积分公式即可\\
+进一步推广，\[ E \left(g \left(X\right) \cdot h \left(Y\right)\right)
+=E \left(g \left(X\right)\right) \cdot E \left(h \left(Y\right)\right) \]
+\end{enumerate}
+
+\paragraph{Remark }数学归纳法，只对有限数有用，不能过渡到无穷。（超限归纳法）
+
+\subsection{方差}
+因为$ E \left(X\right) $无法反映随机变量的所有性质，无法反映其“spread”
+
+$ E \left|X-E \left(X\right)\right| $可以用来测定“spread",但不好计算
+
+为了在数学上更好的处理，故用$ E \left(\left(X-E \left(X\right)\right)^2\right) $
+来定义方差
+
+\[ Var \left(X\right)=E \left(X^2\right) -\left(E \left(
+X\right)\right)^2 \]
+
+这个公式的证明体现了这个体系的优越性.均方差为方差的开方。
+
+\paragraph{方差的性质}
+\begin{enumerate}
+	\item 方差大于零
+	\item $ Var \left(C\right) =0$，C为常数
+	\item $ Var \left(a \cdot X\right) =a^2 \cdot Var \left(X\right)$,不是线性性质，但利用了期望的线性性质
+	\item 如果X和Y互相独立，有：
+	\[ Var \left(X+Y\right) =Var \left(X\right)+Var \left(Y\right)\]
+	反映了方差的线性性质，这里利用了期望的第三条性质，虽然形式上
+	跟第二条性质相似
+	\item a,b为常数，则
+	\[ Var \left(a+bX\right)=b^2 \cdot Var \left(X\right) \]
+\end{enumerate}
+
+\subsection{协方差}
+Covariance:
+\[ Cov \left(X,Y\right) =E \left(\left(X-E \left(X\right)\right)
+\left(Y-\left(E \left(Y\right)\right)\right) \right)\]
+它的性质蛮多的。不过均是可以由条件期望的三条性质推导出来的。
+它可以取任意实数.，代表一种相关性
+
+可以引出一个Varaince Formula,蛮有用的
+
+\subsection{相关系数}
+由于Covariance可能太大，故引进Correlation Cofficient: $ \rho 
+\left(X,Y\right) $
+
+其中两个方差严格大于零.
+
+可以构造证明\[ -1 \leqq \rho \leqq 1 \]
+
+如果$ \rho =1 $,则两者呈现正线性关系。
+
+\textbf{不过对于这个线性关系怎样理解？}
+
+另外，可以与线性代数来使n个随机变量的Covariance 形式更漂亮
+
+\subsection{Moment Generating Function}
+矩发生函数,MGF
+\[ M_X \left(t\right)=E \left(e ^{tX}\right) \]
+是关于t的实函数。
+
+显然，
+\[ M_X \left(t\right)=E \left(e ^{tX}\right)=
+\int_{-\infty}^{\infty} e ^{tx} f \left(x\right) dx\]
+由于绝对收敛性，所以可能对某些t不成立
+
+矩发生函数的性质：
+\begin{enumerate}
+	\item $ M_X\left(0\right) =1$
+	\item If $ Y=aX+b $,$ M_Y \left(t\right)=e^{bt} M_X \left(at\right)$,利用期望的线性性质即可。
+	\item If Z=X+Y ,and X,Y are independent then $ 
+	M_Z \left(t\right)=M_X \left(t\right) \cdot M_Y \left(t\right) $,可拓展至 n 个独立随机变量
+	\item mgf与其随机变量一一对应。拉氏变换的唯一性
+\end{enumerate}
+
+\textbf{Remark} 你对几何分布的认识有问题。
+
+矩发生函数的应用：
+\begin{enumerate}
+	\item 用来求随机变量的矩：
+	\[ M'_X \left(t\right)=\dfrac{d}{dt} E \left(e^{tX}\right)=E \left(\dfrac{d}{dt} e^{tX}\right)=
+	E \left(e^{tX}X\right)\]
+	则：\[ E \left(X^n\right)=M_X^{(n)} \left(0\right)\]
+	称为原点矩，另外还有均值矩$ E\left[\left(X-E \left(X \right) \right)^n\right]  $,\textbf{也是可以求出来的}
+	\item 用来决定分布
+	利用性质三和性质四可以求组合独立随机变量的分布
+\end{enumerate}
+
+\textbf{Remark} $ Y \sim \Gamma \left(\dfrac{1}{2},\dfrac{n}{2}\right) $,其中$ Y \sim \chi ^2 \left(n\right) $
+
+\section{条件概率}
+\subsection{引入概念}
+首先从离散型随机变量引入。并且与Joint p.m.f和Marginal p.m.f
+\paragraph{Conditional p.m.f}
+是x的函数，y在其中起参数的作用，\[ p_{X|Y} \left(x|y\right)\]
+\paragraph{Conditional c.d.f}
+由Conditional p.m.f 求和而得，仍然是x的函数
+\[ F_{X|Y} \left(x|y\right)\]
+\paragraph{条件期望}
+\[ E \left(X|Y=y\right)=\sum_{x} x \cdot p_{X|Y} 
+\left(x|y\right)
+\]
+其中要求$ p_Y{y} >0$,这也是难以向连续性随机变量拓展的困难之处。
+
+\paragraph{an example}
+如果X和Y是独立的泊松分布，求\[ E \left(X|X+Y=n\right) \]
+answer is $ n \dfrac{\lambda _{1}}{\lambda _{2}+\lambda_{1}} $
+
+\paragraph{连续性随机变量的条件期望的引入}
+取极限就是
+\[ f_{X|Y} \left(x|y\right)=\dfrac{f \left(x,y\right)}{f_Y \left(y\right)}其中f_Y \left(y\right)>0\]
+\[ E \left(X|Y=y\right)=\int_{-\infty}^{\infty} x \cdot f_{X|Y} \left(x|y\right) /, dx \]
+是y的函数
+
+\end{document}
